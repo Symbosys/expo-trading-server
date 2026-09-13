@@ -391,7 +391,10 @@ export const userController = {
                     error: 'User not found',
                 });
             }
-            await prisma.user.delete({ where: { id } });
+            await prisma.user.update({
+                where: { id },
+                data: { isDeleted: true },
+            });
             return res.status(StatusCodes.OK).json({
                 message: 'User deleted successfully',
             });
@@ -409,7 +412,9 @@ export const userController = {
             const limit = parseInt(req.query.limit, 10) || 10;
             const search = req.query.search || '';
             const skip = (page - 1) * limit;
-            const where = {};
+            const where = {
+                isDeleted: false,
+            };
             if (search) {
                 where.OR = [
                     { name: { contains: search } },

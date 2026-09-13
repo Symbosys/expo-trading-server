@@ -25,7 +25,7 @@ app.use(cors({
         "http://localhost:8080",
         "http://localhost:8081",
         "https://www.expotradex.com",
-        "https://expo-trading-admin.vercel.app"
+        "https://admin.expotradex.com"
     ],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -42,7 +42,7 @@ app.use(express.json({
 }));
 app.use(express.static("src/views"));
 app.get("/", (req, res) => {
-    return res.sendFile("index.html", { root: "src/views" });
+    return res.send("Hello World!");
 });
 // routes
 app.use('/api/user', userRoutes);

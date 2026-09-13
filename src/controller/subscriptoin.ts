@@ -160,6 +160,9 @@ export const subscriptionPlanController = {
       const userId = req.query?.id as string; // May be undefined if not logged in
 
       const subscriptionPlans = await prisma.subscriptionPlan.findMany({
+        where: {
+          isDeleted: false,
+        },
         select: {
           id: true,
           name: true,
@@ -349,15 +352,10 @@ export const subscriptionPlanController = {
         });
       }
 
-      // Check for existing investments
-      const investmentCount = await prisma.investment.count({ where: { planId: id } });
-      if (investmentCount > 0) {
-        return res.status(StatusCodes.BAD_REQUEST).json({
-          error: 'Cannot delete plan with existing investments',
-        });
-      }
-
-      await prisma.subscriptionPlan.delete({ where: { id } });
+      await prisma.subscriptionPlan.update({
+        where: { id },
+        data: { isDeleted: true },
+      });
 
       return res.status(StatusCodes.OK).json({
         message: 'Subscription plan deleted successfully',

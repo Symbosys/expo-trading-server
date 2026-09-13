@@ -2487,6 +2487,7 @@ export namespace Prisma {
     totalReferrals: number | null
     totalEarnings: Decimal | null
     currentLevel: number | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2503,6 +2504,7 @@ export namespace Prisma {
     totalReferrals: number | null
     totalEarnings: Decimal | null
     currentLevel: number | null
+    isDeleted: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2519,6 +2521,7 @@ export namespace Prisma {
     totalReferrals: number
     totalEarnings: number
     currentLevel: number
+    isDeleted: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2551,6 +2554,7 @@ export namespace Prisma {
     totalReferrals?: true
     totalEarnings?: true
     currentLevel?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2567,6 +2571,7 @@ export namespace Prisma {
     totalReferrals?: true
     totalEarnings?: true
     currentLevel?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2583,6 +2588,7 @@ export namespace Prisma {
     totalReferrals?: true
     totalEarnings?: true
     currentLevel?: true
+    isDeleted?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2686,6 +2692,7 @@ export namespace Prisma {
     totalReferrals: number
     totalEarnings: Decimal
     currentLevel: number
+    isDeleted: boolean
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -2721,6 +2728,7 @@ export namespace Prisma {
     totalReferrals?: boolean
     totalEarnings?: boolean
     currentLevel?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     referredBy?: boolean | User$referredByArgs<ExtArgs>
@@ -2753,11 +2761,12 @@ export namespace Prisma {
     totalReferrals?: boolean
     totalEarnings?: boolean
     currentLevel?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "passwordHash" | "walletAddress" | "usdtBalance" | "referralCode" | "referredById" | "totalReferrals" | "totalEarnings" | "currentLevel" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "passwordHash" | "walletAddress" | "usdtBalance" | "referralCode" | "referredById" | "totalReferrals" | "totalEarnings" | "currentLevel" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     referredBy?: boolean | User$referredByArgs<ExtArgs>
     referrals?: boolean | User$referralsArgs<ExtArgs>
@@ -2804,6 +2813,7 @@ export namespace Prisma {
       totalReferrals: number
       totalEarnings: Prisma.Decimal
       currentLevel: number
+      isDeleted: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -3199,6 +3209,7 @@ export namespace Prisma {
     readonly totalReferrals: FieldRef<"User", 'Int'>
     readonly totalEarnings: FieldRef<"User", 'Decimal'>
     readonly currentLevel: FieldRef<"User", 'Int'>
+    readonly isDeleted: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -4892,6 +4903,7 @@ export namespace Prisma {
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    isDeleted: boolean | null
   }
 
   export type SubscriptionPlanMaxAggregateOutputType = {
@@ -4907,6 +4919,7 @@ export namespace Prisma {
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
+    isDeleted: boolean | null
   }
 
   export type SubscriptionPlanCountAggregateOutputType = {
@@ -4922,6 +4935,7 @@ export namespace Prisma {
     isActive: number
     createdAt: number
     updatedAt: number
+    isDeleted: number
     _all: number
   }
 
@@ -4957,6 +4971,7 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    isDeleted?: true
   }
 
   export type SubscriptionPlanMaxAggregateInputType = {
@@ -4972,6 +4987,7 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    isDeleted?: true
   }
 
   export type SubscriptionPlanCountAggregateInputType = {
@@ -4987,6 +5003,7 @@ export namespace Prisma {
     isActive?: true
     createdAt?: true
     updatedAt?: true
+    isDeleted?: true
     _all?: true
   }
 
@@ -5089,6 +5106,7 @@ export namespace Prisma {
     isActive: boolean
     createdAt: Date
     updatedAt: Date
+    isDeleted: boolean
     _count: SubscriptionPlanCountAggregateOutputType | null
     _avg: SubscriptionPlanAvgAggregateOutputType | null
     _sum: SubscriptionPlanSumAggregateOutputType | null
@@ -5123,6 +5141,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isDeleted?: boolean
     investments?: boolean | SubscriptionPlan$investmentsArgs<ExtArgs>
     _count?: boolean | SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subscriptionPlan"]>
@@ -5142,9 +5161,10 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    isDeleted?: boolean
   }
 
-  export type SubscriptionPlanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "minimumInvestment" | "maximumInvestment" | "roiPerMonth" | "roiPerDay" | "maximumEarning" | "durationInMonths" | "description" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["subscriptionPlan"]>
+  export type SubscriptionPlanOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "minimumInvestment" | "maximumInvestment" | "roiPerMonth" | "roiPerDay" | "maximumEarning" | "durationInMonths" | "description" | "isActive" | "createdAt" | "updatedAt" | "isDeleted", ExtArgs["result"]["subscriptionPlan"]>
   export type SubscriptionPlanInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investments?: boolean | SubscriptionPlan$investmentsArgs<ExtArgs>
     _count?: boolean | SubscriptionPlanCountOutputTypeDefaultArgs<ExtArgs>
@@ -5168,6 +5188,7 @@ export namespace Prisma {
       isActive: boolean
       createdAt: Date
       updatedAt: Date
+      isDeleted: boolean
     }, ExtArgs["result"]["subscriptionPlan"]>
     composites: {}
   }
@@ -5550,6 +5571,7 @@ export namespace Prisma {
     readonly isActive: FieldRef<"SubscriptionPlan", 'Boolean'>
     readonly createdAt: FieldRef<"SubscriptionPlan", 'DateTime'>
     readonly updatedAt: FieldRef<"SubscriptionPlan", 'DateTime'>
+    readonly isDeleted: FieldRef<"SubscriptionPlan", 'Boolean'>
   }
     
 
@@ -18656,6 +18678,7 @@ export namespace Prisma {
     totalReferrals: 'totalReferrals',
     totalEarnings: 'totalEarnings',
     currentLevel: 'currentLevel',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -18688,7 +18711,8 @@ export namespace Prisma {
     description: 'description',
     isActive: 'isActive',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    isDeleted: 'isDeleted'
   };
 
   export type SubscriptionPlanScalarFieldEnum = (typeof SubscriptionPlanScalarFieldEnum)[keyof typeof SubscriptionPlanScalarFieldEnum]
@@ -19102,16 +19126,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'DateTime'
+   * Reference to a field of type 'Boolean'
    */
-  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
   /**
-   * Reference to a field of type 'Boolean'
+   * Reference to a field of type 'DateTime'
    */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
     
 
 
@@ -19217,6 +19241,7 @@ export namespace Prisma {
     totalReferrals?: IntFilter<"User"> | number
     totalEarnings?: DecimalFilter<"User"> | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFilter<"User"> | number
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     referredBy?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -19246,6 +19271,7 @@ export namespace Prisma {
     totalReferrals?: SortOrder
     totalEarnings?: SortOrder
     currentLevel?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     referredBy?: UserOrderByWithRelationInput
@@ -19280,6 +19306,7 @@ export namespace Prisma {
     totalReferrals?: IntFilter<"User"> | number
     totalEarnings?: DecimalFilter<"User"> | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFilter<"User"> | number
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     referredBy?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -19309,6 +19336,7 @@ export namespace Prisma {
     totalReferrals?: SortOrder
     totalEarnings?: SortOrder
     currentLevel?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -19333,6 +19361,7 @@ export namespace Prisma {
     totalReferrals?: IntWithAggregatesFilter<"User"> | number
     totalEarnings?: DecimalWithAggregatesFilter<"User"> | Decimal | DecimalJsLike | number | string
     currentLevel?: IntWithAggregatesFilter<"User"> | number
+    isDeleted?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -19421,6 +19450,7 @@ export namespace Prisma {
     isActive?: BoolFilter<"SubscriptionPlan"> | boolean
     createdAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
     updatedAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
+    isDeleted?: BoolFilter<"SubscriptionPlan"> | boolean
     investments?: InvestmentListRelationFilter
   }
 
@@ -19437,6 +19467,7 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isDeleted?: SortOrder
     investments?: InvestmentOrderByRelationAggregateInput
     _relevance?: SubscriptionPlanOrderByRelevanceInput
   }
@@ -19457,6 +19488,7 @@ export namespace Prisma {
     isActive?: BoolFilter<"SubscriptionPlan"> | boolean
     createdAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
     updatedAt?: DateTimeFilter<"SubscriptionPlan"> | Date | string
+    isDeleted?: BoolFilter<"SubscriptionPlan"> | boolean
     investments?: InvestmentListRelationFilter
   }, "id">
 
@@ -19473,6 +19505,7 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isDeleted?: SortOrder
     _count?: SubscriptionPlanCountOrderByAggregateInput
     _avg?: SubscriptionPlanAvgOrderByAggregateInput
     _max?: SubscriptionPlanMaxOrderByAggregateInput
@@ -19496,6 +19529,7 @@ export namespace Prisma {
     isActive?: BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"SubscriptionPlan"> | Date | string
+    isDeleted?: BoolWithAggregatesFilter<"SubscriptionPlan"> | boolean
   }
 
   export type InvestmentWhereInput = {
@@ -20454,6 +20488,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -20483,6 +20518,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -20510,6 +20546,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -20539,6 +20576,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -20567,6 +20605,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20582,6 +20621,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20598,6 +20638,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -20684,6 +20725,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isDeleted?: boolean
     investments?: InvestmentCreateNestedManyWithoutPlanInput
   }
 
@@ -20700,6 +20742,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isDeleted?: boolean
     investments?: InvestmentUncheckedCreateNestedManyWithoutPlanInput
   }
 
@@ -20716,6 +20759,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     investments?: InvestmentUpdateManyWithoutPlanNestedInput
   }
 
@@ -20732,6 +20776,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     investments?: InvestmentUncheckedUpdateManyWithoutPlanNestedInput
   }
 
@@ -20748,6 +20793,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isDeleted?: boolean
   }
 
   export type SubscriptionPlanUpdateManyMutationInput = {
@@ -20763,6 +20809,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubscriptionPlanUncheckedUpdateManyInput = {
@@ -20778,6 +20825,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type InvestmentCreateInput = {
@@ -21824,6 +21872,11 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -21964,6 +22017,7 @@ export namespace Prisma {
     totalReferrals?: SortOrder
     totalEarnings?: SortOrder
     currentLevel?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -21987,6 +22041,7 @@ export namespace Prisma {
     totalReferrals?: SortOrder
     totalEarnings?: SortOrder
     currentLevel?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22003,6 +22058,7 @@ export namespace Prisma {
     totalReferrals?: SortOrder
     totalEarnings?: SortOrder
     currentLevel?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -22082,6 +22138,14 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -22156,11 +22220,6 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type SubscriptionPlanOrderByRelevanceInput = {
     fields: SubscriptionPlanOrderByRelevanceFieldEnum | SubscriptionPlanOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -22180,6 +22239,7 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type SubscriptionPlanAvgOrderByAggregateInput = {
@@ -22204,6 +22264,7 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type SubscriptionPlanMinOrderByAggregateInput = {
@@ -22219,6 +22280,7 @@ export namespace Prisma {
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type SubscriptionPlanSumOrderByAggregateInput = {
@@ -22244,14 +22306,6 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -23286,6 +23340,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -23662,10 +23720,6 @@ export namespace Prisma {
     decrement?: Decimal | DecimalJsLike | number | string
     multiply?: Decimal | DecimalJsLike | number | string
     divide?: Decimal | DecimalJsLike | number | string
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type InvestmentUpdateManyWithoutPlanNestedInput = {
@@ -24122,6 +24176,11 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -24223,6 +24282,14 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -24248,11 +24315,6 @@ export namespace Prisma {
     not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
     in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
@@ -24267,14 +24329,6 @@ export namespace Prisma {
     _sum?: NestedDecimalNullableFilter<$PrismaModel>
     _min?: NestedDecimalNullableFilter<$PrismaModel>
     _max?: NestedDecimalNullableFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -24516,6 +24570,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -24544,6 +24599,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     wallet?: WalletUncheckedCreateNestedOneWithoutUserInput
@@ -24575,6 +24631,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserCreateNestedManyWithoutReferredByInput
@@ -24602,6 +24659,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -24987,6 +25045,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -25015,6 +25074,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     wallet?: WalletUncheckedUpdateOneWithoutUserNestedInput
@@ -25061,6 +25121,7 @@ export namespace Prisma {
     totalReferrals?: IntFilter<"User"> | number
     totalEarnings?: DecimalFilter<"User"> | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFilter<"User"> | number
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -25380,6 +25441,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -25408,6 +25470,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -25450,6 +25513,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -25478,6 +25542,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -25562,6 +25627,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -25590,6 +25656,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -25623,6 +25690,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isDeleted?: boolean
   }
 
   export type SubscriptionPlanUncheckedCreateWithoutInvestmentsInput = {
@@ -25638,6 +25706,7 @@ export namespace Prisma {
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+    isDeleted?: boolean
   }
 
   export type SubscriptionPlanCreateOrConnectWithoutInvestmentsInput = {
@@ -25731,6 +25800,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -25759,6 +25829,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -25798,6 +25869,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubscriptionPlanUncheckedUpdateWithoutInvestmentsInput = {
@@ -25813,6 +25885,7 @@ export namespace Prisma {
     isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ROIRecordUpsertWithWhereUniqueWithoutInvestmentInput = {
@@ -25858,6 +25931,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -25886,6 +25960,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -25917,6 +25992,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -25945,6 +26021,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -25987,6 +26064,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26015,6 +26093,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26052,6 +26131,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26080,6 +26160,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26106,6 +26187,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26134,6 +26216,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26213,6 +26296,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26241,6 +26325,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26310,6 +26395,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26338,6 +26424,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26380,6 +26467,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26408,6 +26496,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26434,6 +26523,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26462,6 +26552,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26493,6 +26584,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26521,6 +26613,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26563,6 +26656,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26591,6 +26685,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26628,6 +26723,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26656,6 +26752,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26682,6 +26779,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26710,6 +26808,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26789,6 +26888,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26817,6 +26917,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -26886,6 +26987,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -26914,6 +27016,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -26956,6 +27059,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -26984,6 +27088,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -27048,6 +27153,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referredBy?: UserCreateNestedOneWithoutReferralsInput
@@ -27076,6 +27182,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     referrals?: UserUncheckedCreateNestedManyWithoutReferredByInput
@@ -27145,6 +27252,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referredBy?: UserUpdateOneWithoutReferralsNestedInput
@@ -27173,6 +27281,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -27232,6 +27341,7 @@ export namespace Prisma {
     totalReferrals?: number
     totalEarnings?: Decimal | DecimalJsLike | number | string
     currentLevel?: number
+    isDeleted?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -27352,6 +27462,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUpdateManyWithoutReferredByNestedInput
@@ -27379,6 +27490,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     referrals?: UserUncheckedUpdateManyWithoutReferredByNestedInput
@@ -27406,6 +27518,7 @@ export namespace Prisma {
     totalReferrals?: IntFieldUpdateOperationsInput | number
     totalEarnings?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     currentLevel?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

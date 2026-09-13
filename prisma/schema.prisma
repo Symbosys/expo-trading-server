@@ -69,6 +69,7 @@ model User {
   totalReferrals Int      @default(0)
   totalEarnings  Decimal  @default("0.000000") @db.Decimal(18, 6)
   currentLevel   Int      @default(0) // 0..5
+  isDeleted      Boolean  @default(false)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
@@ -116,6 +117,7 @@ model SubscriptionPlan {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
+  isDeleted      Boolean  @default(false)
   investments Investment[]
 }
 

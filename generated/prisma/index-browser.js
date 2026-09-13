@@ -133,6 +133,7 @@ exports.Prisma.UserScalarFieldEnum = {
   totalReferrals: 'totalReferrals',
   totalEarnings: 'totalEarnings',
   currentLevel: 'currentLevel',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -159,7 +160,8 @@ exports.Prisma.SubscriptionPlanScalarFieldEnum = {
   description: 'description',
   isActive: 'isActive',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  isDeleted: 'isDeleted'
 };
 
 exports.Prisma.InvestmentScalarFieldEnum = {

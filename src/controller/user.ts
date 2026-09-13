@@ -444,7 +444,10 @@ export const userController = {
         });
       }
 
-      await prisma.user.delete({ where: { id } });
+      await prisma.user.update({
+        where: { id },
+        data: { isDeleted: true },
+      });
 
       return res.status(StatusCodes.OK).json({
         message: 'User deleted successfully',
@@ -464,7 +467,9 @@ async getAllUsers(req: Request, res: Response) {
       const search = req.query.search as string || '';
       const skip = (page - 1) * limit;
 
-      const where: Prisma.UserWhereInput = {}
+      const where: Prisma.UserWhereInput = {
+        isDeleted: false,
+      };
 
       if (search) {
         where.OR = [
